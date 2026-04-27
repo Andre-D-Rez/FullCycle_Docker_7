@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  app:
+    image: ubuntu:latest
+    networks:
+      secure_internal_network:
+        aliases:
+          - secure-app
+    command: >
+      bash -c "apt-get update && apt-get install -y iputils-ping && sleep infinity"
+
+networks:
+  secure_internal_network:
+    external: true
